@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 """Utility for generating binding affinity predictions from trained HMSA checkpoints.
 
 Example
@@ -16,6 +17,8 @@ This command generates ``predictions.csv`` with the predicted affinities and a
 companion ``predictions_failed.csv`` that lists any rows filtered out during
 preprocessing.
 """
+
+
 from __future__ import annotations
 
 import csv
