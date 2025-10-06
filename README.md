@@ -14,3 +14,18 @@ Please make sure dataset format is csv, and column name are: 'smiles','sequences
 You can use the following code to run our demo.<br>
 python train.py --data_path ./dataset/DrugBank.csv --metric auc --dataset_type classification --save_dir train_results --target_columns label --epochs 150 --ensemble_size 1 --num_folds 10 --batch_size 50 --aggregation mean --dropout 0.1 --save_preds
 
+## Binding affinity prediction
+The repository includes `predict_binding.py` for running inference with trained checkpoints.
+Assuming an input CSV `test_input.csv` with columns `SMILES` and `target`, run:
+
+```
+python predict_binding.py \
+  --test_path test_input.csv \
+  --preds_path predictions.csv \
+  --checkpoint_paths checkpoints/model.pt \
+  --smiles_columns SMILES
+```
+
+The script writes the predictions to `predictions.csv` and produces a second
+`predictions_failed.csv` report containing any rows excluded during preprocessing.
+

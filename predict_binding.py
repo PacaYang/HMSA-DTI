@@ -1,5 +1,24 @@
 #!/usr/bin/env python
-"""Utility for generating binding affinity predictions from trained HMSA checkpoints."""
+
+"""Utility for generating binding affinity predictions from trained HMSA checkpoints.
+
+Example
+-------
+Assuming an input CSV named ``test_input.csv`` with columns ``SMILES`` and
+``target`` (the latter is ignored during inference), run::
+
+    python predict_binding.py \
+        --test_path test_input.csv \
+        --preds_path predictions.csv \
+        --checkpoint_paths checkpoints/model.pt \
+        --smiles_columns SMILES
+
+This command generates ``predictions.csv`` with the predicted affinities and a
+companion ``predictions_failed.csv`` that lists any rows filtered out during
+preprocessing.
+"""
+
+
 from __future__ import annotations
 
 import csv
